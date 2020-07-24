@@ -1,0 +1,63 @@
+{% extends 'layout/base.html' %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="card card-nav-tabs">
+        <div class="card-header card-header-warning">
+            Fill The Form to generate card
+        </div>
+        <div class="card-body">
+            <div class="col-md-6 m-auto">
+                <h4 class="card-title">Request For A Map</h4>
+                <form action="." method="POST">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                    <div class="form-group has-success">
+                        <label class="control-label">{{field.label}}</label>
+                        {{field}}
+                        <!-- <input type="text" value="Success" class="form-control form-control-success" /> -->
+                    </div>
+
+                    {% endfor %}
+
+
+
+                    <button type="submit" class="btn btn-primary">SUBMIT</button>
+
+                </form>
+            </div>
+            <p class="card-text">You will be redirected to the dowload Link</p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+{% block extra_java %}
+<script>
+    $(document).ready(function () {
+        var $list = $("form :input[type='text'], form :input[type='email']");
+        $list.each(function () {
+            $(this).addClass('form-control')
+        });
+        var $select = $("form select");
+        $select.each(function () {
+            $(this).addClass('custom-select w-90')
+        });
+        var $list = $("form :input[type='number']");
+        $list.each(function () {
+            $(this).addClass('form-control')
+        });
+        var $textarea = $("form textarea");
+        $textarea.each(function () {
+            $(this).addClass('form-control')
+        })
+    })
+</script>
+
+{% endblock extra_java %}

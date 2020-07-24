@@ -1,0 +1,20 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<a href="{% url 'single-map' %}" class="btn btn-primary">Request Map - Single</a>
+	</div>
+	<div class="row mt-5">
+		<a href="{% url 'multiple-maps' %}" class="btn btn-info">Request Map - Multiple</a>
+	</div>
+	<div class="row">
+		<a href="{% url 'shape-list' %}">List Of Shapes</a>
+	</div>
+</div>
+{% endblock content %}
